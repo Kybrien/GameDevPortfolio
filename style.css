@@ -1357,9 +1357,6 @@ footer::before {
   }
   
   .hero-content {
-    /* background-image: url(./Medias/TitleImage.png);
-    background-size: contain;
-    background-repeat: no-repeat; */
     text-align: center;
     color: var(--light); 
     padding: 2rem;
@@ -1373,8 +1370,9 @@ footer::before {
   }
   
   .hero-subtitle {
+    font-family: 'TrajanPro', serif;
     font-size: 1.2rem;
-    color: var(--accent);
+    color: #fff;
   }
   
   /* Réduction en scroll */
@@ -1388,5 +1386,11 @@ footer::before {
   
   .hero-banner.shrink .hero-subtitle {
     font-size: 1rem;
+  }
+
+  .hero-image-title {
+    max-width: 80%;
+    height: auto;
+    margin-bottom: 1rem;
   }
   

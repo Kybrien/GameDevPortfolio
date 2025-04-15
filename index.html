@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Adrien Patte | Game Developer</title>
     <link href="style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -11,20 +11,20 @@
     <header class="hero-banner" id="heroBanner">
         <video autoplay muted loop playsinline class="hero-video">
           <source src="/Medias/Ending Stream.mp4" type="video/mp4" />
-          Ton navigateur ne supporte pas les vidéos HTML5.
+          Votre navigateur ne supporte pas les videos HTML5.
         </video>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-          <h1 class="hero-title">Adrien Patte</h1>
-          <p class="hero-subtitle">Développeur de Jeux Vidéo • Unity / Unreal / C++ / C#</p>
-        </div>
+            <img src="./Medias/TitleImage.png" alt="Adrien Patte" class="hero-image-title">
+            <p class="hero-subtitle">Game Developer • Unity / Unreal / C++ / C# / Blueprint</p>
+          </div>
     </header>      
     <nav class="nav-links">
         <a href="#about" class="nav-link">À propos</a>
         <a href="#skills" class="nav-link">Compétences</a>
         <a href="#projects" class="nav-link">Projets</a>
         <a href="#in-progress" class="nav-link">En cours</a>
-        <a href="#experience" class="nav-link">Expérience</a>
+        <!-- <a href="#experience" class="nav-link">Expérience</a> -->
         <a href="#contact" class="nav-link">Contact</a>
     </nav>
 
@@ -36,57 +36,7 @@
             <p>Bienvenue sur mon portfolio ! Je suis un développeur de jeux vidéo passionné avec X années d'expérience dans la création d'expériences interactives immersives.</p>
             <p>Spécialisé dans Unity, Unreal Engine, IA, shaders, physique, et tout ce qui rend un jeu unique.</p>
         </div>
-    </section>
-
-    <section id="skills" class="skills-carousel-section animate-on-scroll">
-        <h2 class="section-title">Mes Compétences</h2>
-    
-        <div class="skills-tabs">
-            <button class="skills-tab active" data-skill-group="all">Tout</button>
-            <button class="skills-tab" data-skill-group="coding">Coding</button>
-            <button class="skills-tab" data-skill-group="apps">Applications</button>
-            <button class="skills-tab" data-skill-group="hard">Hard Skills</button>
-        </div>
-    
-        <div class="carousel-wrapper">
-            <div class="skills-carousel" id="skillsCarousel">
-                <!-- Example Skill Card -->
-                <div class="skill-card" data-group="coding">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity">
-                    <span>Unity</span>
-                    <span class="skill-level expert">Expert</span>
-                </div>
-                <div class="skill-card" data-group="coding">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unrealengine/unrealengine-original.svg" alt="Unreal Engine">
-                    <span>Unreal Engine</span>
-                    <span class="skill-level advanced">Avancé</span>
-                </div>
-                <div class="skill-card" data-group="apps">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/65/Aseprite_icon.png" alt="Aseprite">
-                    <span>Aseprite</span>
-                    <span class="skill-level intermediate">Intermédiaire</span>
-                </div>
-                <div class="skill-card" data-group="apps">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/OBS_Studio_Logo.svg" alt="OBS">
-                    <span>OBS</span>
-                    <span class="skill-level advanced">Avancé</span>
-                </div>
-                <div class="skill-card" data-group="apps">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Canva_icon_2021.svg" alt="Canva">
-                    <span>Canva</span>
-                    <span class="skill-level intermediate">Intermédiaire</span>
-                </div>
-                <div class="skill-card" data-group="hard">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
-                    <span>Git</span>
-                    <span class="skill-level expert">Expert</span>
-                </div>
-                <!-- Repeat with other skills... -->
-            </div>
-        </div>
-    </section>
-    
-    
+    </section>  
 
     <section id="projects" class="animate-on-scroll">
         <h2 class="section-title">Projets</h2>
@@ -103,15 +53,15 @@
 
             <div class="projects-grid">
                 <div class="project-card" data-project="project1" data-categories="aventure,unity,sci-fi">
-                    <div class="in-progress-badge">Nouveau</div>
-                    <img src="/api/placeholder/600/400" alt="Screenshot du jeu" class="project-image">
+                    <div class="in-progress-badge">3e Annee</div>
+                    <img src="/Screenshots/GGB/GGBInGame01.PNG" alt="Screenshot du jeu" class="project-image">
                     <div class="project-content">
-                        <h3 class="project-title">Cosmic Explorers</h3>
+                        <h3 class="project-title">Gobelins, Grimoires et gros Bobos</h3>
                         <p>Jeu d'aventure spatiale avec exploration de planètes générées procéduralement.</p>
                         <div class="project-tags">
-                            <span class="project-tag">Unity</span>
-                            <span class="project-tag">C#</span>
-                            <span class="project-tag">Sci-Fi</span>
+                            <span class="project-tag">Unreal Engine</span>
+                            <span class="project-tag">C++</span>
+                            <span class="project-tag">Multijoueur</span>
                         </div>
                     </div>
                 </div>
@@ -234,30 +184,6 @@
           </div>
         </div>
     </section>
-      
-    <!-- <section id="experience" class="experience animate-on-scroll">
-        <h2 class="section-title">Expérience</h2>
-        <div class="timeline">
-            <div class="timeline-item left">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <span class="timeline-date">2023 - 2025</span>
-                    <h3 class="timeline-title">Développeur Gameplay</h3>
-                    <p>Studio XYZ</p>
-                    <p>Conception de mécaniques de gameplay pour un rogue-like 3D. Optimisations multijoueur et système d'IA comportementale.</p>
-                </div>
-            </div>
-            <div class="timeline-item right">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <span class="timeline-date">2021 - 2023</span>
-                    <h3 class="timeline-title">Programmeur Junior</h3>
-                    <p>Indie Studio</p>
-                    <p>Implémentation de l’UI, outils internes, prototypage gameplay. Collaboration avec artistes & designers.</p>
-                </div>
-            </div>
-        </div>
-    </section> -->
 
     <section id="contact" class="contact">
         <h2 class="section-title">Get In Touch</h2>
