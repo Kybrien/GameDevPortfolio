@@ -5,14 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="banner-header">
-        <div class="banner-content">
-            <h1>Prénom Nom</h1>
-            <p>Développeur de Jeux Vidéo • Unity / Unreal / C++ / C#</p>
+    <header class="hero-banner" id="heroBanner">
+        <video autoplay muted loop playsinline class="hero-video">
+          <source src="/Medias/Ending Stream.mp4" type="video/mp4" />
+          Ton navigateur ne supporte pas les vidéos HTML5.
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h1 class="hero-title">Adrien Patte</h1>
+          <p class="hero-subtitle">Développeur de Jeux Vidéo • Unity / Unreal / C++ / C#</p>
         </div>
-    </header>
+    </header>      
     <nav class="nav-links">
         <a href="#about" class="nav-link">À propos</a>
         <a href="#skills" class="nav-link">Compétences</a>
@@ -32,24 +38,54 @@
         </div>
     </section>
 
-    <section id="skills" class="technical-skills animate-on-scroll">
-        <h2 class="section-title">Technical Skills</h2>
-        <div class="container">
-            <div class="skills">
-                <span class="skill-tag soft">Unity</span>
-                <span class="skill-tag soft">Unreal Engine</span>
-                <span class="skill-tag soft">C#</span>
-                <span class="skill-tag soft">C++</span>
-                <span class="skill-tag soft">Gameplay Programming</span>
-                <span class="skill-tag soft">Shader Dev</span>
-                <span class="skill-tag soft">AI Systems</span>
-                <span class="skill-tag soft">Git</span>
-                <span class="skill-tag soft">3D Modeling</span>
-                <span class="skill-tag soft">Blender</span>
-                <span class="skill-tag soft">Technical Design</span>
+    <section id="skills" class="skills-carousel-section animate-on-scroll">
+        <h2 class="section-title">Mes Compétences</h2>
+    
+        <div class="skills-tabs">
+            <button class="skills-tab active" data-skill-group="all">Tout</button>
+            <button class="skills-tab" data-skill-group="coding">Coding</button>
+            <button class="skills-tab" data-skill-group="apps">Applications</button>
+            <button class="skills-tab" data-skill-group="hard">Hard Skills</button>
+        </div>
+    
+        <div class="carousel-wrapper">
+            <div class="skills-carousel" id="skillsCarousel">
+                <!-- Example Skill Card -->
+                <div class="skill-card" data-group="coding">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity">
+                    <span>Unity</span>
+                    <span class="skill-level expert">Expert</span>
+                </div>
+                <div class="skill-card" data-group="coding">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unrealengine/unrealengine-original.svg" alt="Unreal Engine">
+                    <span>Unreal Engine</span>
+                    <span class="skill-level advanced">Avancé</span>
+                </div>
+                <div class="skill-card" data-group="apps">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/65/Aseprite_icon.png" alt="Aseprite">
+                    <span>Aseprite</span>
+                    <span class="skill-level intermediate">Intermédiaire</span>
+                </div>
+                <div class="skill-card" data-group="apps">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/OBS_Studio_Logo.svg" alt="OBS">
+                    <span>OBS</span>
+                    <span class="skill-level advanced">Avancé</span>
+                </div>
+                <div class="skill-card" data-group="apps">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Canva_icon_2021.svg" alt="Canva">
+                    <span>Canva</span>
+                    <span class="skill-level intermediate">Intermédiaire</span>
+                </div>
+                <div class="skill-card" data-group="hard">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+                    <span>Git</span>
+                    <span class="skill-level expert">Expert</span>
+                </div>
+                <!-- Repeat with other skills... -->
             </div>
         </div>
     </section>
+    
     
 
     <section id="projects" class="animate-on-scroll">
@@ -79,29 +115,127 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="in-progress" class="in-progress-section animate-on-scroll">
-        <h2 class="section-title">Projets en cours</h2>
-        <div class="timeline">
-            <div class="timeline-item left">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <span class="timeline-date">Avril 2025</span>
-                    <h3 class="timeline-title">Orbit Jumper</h3>
-                    <p>Jeu spatial mobile où le joueur utilise la gravité des planètes pour aller le plus loin possible.</p>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar" style="width: 75%;"></div>
+                <div class="project-card" data-project="project1" data-categories="aventure,unity,sci-fi">
+                    <div class="in-progress-badge">Nouveau</div>
+                    <img src="/api/placeholder/600/400" alt="Screenshot du jeu" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Cosmic Explorers</h3>
+                        <p>Jeu d'aventure spatiale avec exploration de planètes générées procéduralement.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Unity</span>
+                            <span class="project-tag">C#</span>
+                            <span class="project-tag">Sci-Fi</span>
+                        </div>
                     </div>
-                    <p class="progress-text">Avancement : 75%</p>
+                </div>
+                <div class="project-card" data-project="project1" data-categories="aventure,unity,sci-fi">
+                    <div class="in-progress-badge">Nouveau</div>
+                    <img src="/api/placeholder/600/400" alt="Screenshot du jeu" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Cosmic Explorers</h3>
+                        <p>Jeu d'aventure spatiale avec exploration de planètes générées procéduralement.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Unity</span>
+                            <span class="project-tag">C#</span>
+                            <span class="project-tag">Sci-Fi</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <section id="experience" class="experience animate-on-scroll">
+    <section id="in-progress" class="projects-container animate-on-scroll">
+        <h2 class="section-title">Projets en cours</h2>
+        <div class="projects-grid">
+          <!-- Projet 1 -->
+          <div class="project-card">
+            <div class="project-status status-active">En développement actif</div>
+            <div class="project-image">
+              <img src="/api/placeholder/600/400" alt="Project Nexus">
+              <div class="project-overlay"></div>
+            </div>
+            <div class="project-info">
+              <h3 class="project-title">Project Nexus</h3>
+              <p class="project-desc">RPG tactique au tour par tour avec système de combat innovant et narration non-linéaire.</p>
+              <div class="project-tech">
+                <span class="tech-tag">Unity</span>
+                <span class="tech-tag">C#</span>
+                <span class="tech-tag">Shader Graph</span>
+                <span class="tech-tag">Blender</span>
+              </div>
+              <div class="progress-label">
+                <span>Progression</span><span>65%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 65%"></div>
+              </div>
+              <div class="project-footer">
+                <a href="#" class="project-btn primary-btn">Démo jouable</a>
+                <a href="#" class="project-btn secondary-btn">GitHub</a>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Projet 2 -->
+          <div class="project-card">
+            <div class="project-status status-active">En développement actif</div>
+            <div class="project-image">
+              <img src="/api/placeholder/600/400" alt="EchoVerse">
+              <div class="project-overlay"></div>
+            </div>
+            <div class="project-info">
+              <h3 class="project-title">EchoVerse</h3>
+              <p class="project-desc">Jeu narratif où vos décisions façonnent un monde procédural réactif émotionnellement.</p>
+              <div class="project-tech">
+                <span class="tech-tag">Unreal Engine</span>
+                <span class="tech-tag">Blueprint</span>
+                <span class="tech-tag">C++</span>
+                <span class="tech-tag">FMOD</span>
+              </div>
+              <div class="progress-label">
+                <span>Progression</span><span>40%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 40%"></div>
+              </div>
+              <div class="project-footer">
+                <a href="#" class="project-btn primary-btn">Teaser trailer</a>
+                <a href="#" class="project-btn secondary-btn">Captures</a>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Projet 3 -->
+          <div class="project-card">
+            <div class="project-status status-paused">Temporairement en pause</div>
+            <div class="project-image">
+              <img src="/api/placeholder/600/400" alt="QuantumShift">
+              <div class="project-overlay"></div>
+            </div>
+            <div class="project-info">
+              <h3 class="project-title">QuantumShift</h3>
+              <p class="project-desc">Puzzle-platformer basé sur la manipulation temporelle avec des clones parallèles.</p>
+              <div class="project-tech">
+                <span class="tech-tag">Godot</span>
+                <span class="tech-tag">GDScript</span>
+                <span class="tech-tag">Aseprite</span>
+              </div>
+              <div class="progress-label">
+                <span>Progression</span><span>25%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 25%"></div>
+              </div>
+              <div class="project-footer">
+                <a href="#" class="project-btn primary-btn">M'alerter des updates</a>
+                <a href="#" class="project-btn secondary-btn">Concept art</a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+      
+    <!-- <section id="experience" class="experience animate-on-scroll">
         <h2 class="section-title">Expérience</h2>
         <div class="timeline">
             <div class="timeline-item left">
@@ -123,7 +257,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <section id="contact" class="contact">
         <h2 class="section-title">Get In Touch</h2>
@@ -183,20 +317,20 @@
                 ]
             }
         };
-
+    
         const modal = document.getElementById('projectModal');
         const closeModal = document.getElementById('closeModal');
         const modalTitle = document.getElementById('modalTitle');
         const modalDescription = document.getElementById('modalDescription');
         const screenshotsContainer = document.getElementById('screenshotsContainer');
         const modalTags = document.getElementById('modalTags');
-
+    
         function openProjectModal(projectId) {
             const project = projectsData[projectId];
             if (!project) return;
             modalTitle.textContent = project.title;
             modalDescription.textContent = project.description;
-
+    
             screenshotsContainer.innerHTML = '';
             project.screenshots.forEach(src => {
                 const img = document.createElement('img');
@@ -205,7 +339,7 @@
                 img.className = 'screenshot';
                 screenshotsContainer.appendChild(img);
             });
-
+    
             modalTags.innerHTML = '';
             project.tags.forEach(tag => {
                 const span = document.createElement('span');
@@ -213,30 +347,30 @@
                 span.textContent = tag;
                 modalTags.appendChild(span);
             });
-
+    
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
-
+    
         closeModal.addEventListener('click', () => {
             modal.classList.remove('active');
             document.body.style.overflow = 'auto';
         });
-
+    
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.classList.remove('active');
                 document.body.style.overflow = 'auto';
             }
         });
-
+    
         document.querySelectorAll('.project-card').forEach(card => {
             card.addEventListener('click', () => {
                 const projectId = card.getAttribute('data-project');
                 openProjectModal(projectId);
             });
         });
-
+    
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -247,7 +381,7 @@
                 }
             });
         });
-
+    
         // Animation on scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -256,9 +390,9 @@
                 }
             });
         }, { threshold: 0.1 });
-
+    
         document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
-
+    
         // Filtrage des projets par catégorie
         const categoryButtons = document.querySelectorAll('.category-btn');
         categoryButtons.forEach(button => {
@@ -276,7 +410,61 @@
                 });
             });
         });
+    
+        // ----------------------
+        // 💼 Skills carousel & filtrage
+        // ----------------------
+        const tabButtons = document.querySelectorAll('.skills-tab');
+        const skillCards = document.querySelectorAll('.skill-card');
+    
+        tabButtons.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tab.classList.add('active');
+                const group = tab.dataset.skillGroup;
+    
+                skillCards.forEach(card => {
+                    if (group === 'all' || card.dataset.group === group) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    
+        // Scroll infini horizontal du carousel
+        const carousel = document.getElementById('skillsCarousel');
+        let scrollTimer;
+    
+        function autoScrollCarousel() {
+            if (!carousel) return;
+            carousel.scrollBy({ left: 1, behavior: 'smooth' });
+            if (carousel.scrollLeft + carousel.offsetWidth >= carousel.scrollWidth) {
+                carousel.scrollTo({ left: 0, behavior: 'smooth' });
+            }
+            scrollTimer = setTimeout(autoScrollCarousel, 50);
+        }
+    
+        if (carousel) {
+            carousel.addEventListener('mouseenter', () => clearTimeout(scrollTimer));
+            carousel.addEventListener('mouseleave', autoScrollCarousel);
+            autoScrollCarousel();
+        }
+
+
+        // Effet de repli de la bannière au scroll
+        const hero = document.getElementById('heroBanner');
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 90) {
+            hero.classList.add('shrink');
+          } else {
+            hero.classList.remove('shrink');
+          }
+        });
+
     </script>
+    
 </body>
 
 </html>
