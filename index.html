@@ -40,10 +40,10 @@
 
     <section id="desk-about" class="flatlay-projects">
         <h2 class="section-title">Mon univers</h2>
-        <div class="devdesk-wrapper">
-          <div class="devdesk-view">
+        <div class="devdesk-wrapper" id="devdeskWrapper">
+          <div class="devdesk-view" id="devdeskView">
             <img src="/Medias/RoomPortfolio.png" alt="Ma chambre de dev" class="devdesk-bg">
-            <div class="interactive-item" style="top: 41.5%; left: 18%;" onclick="showDeskPanel('edu')" title="Formation">🎓</div>
+            <div class="interactive-item" style="top: 20.5%; left: 30%;" onclick="showDeskPanel('edu')" title="Formation">🎓</div>
             <div class="interactive-item" style="top: 38%; left: 49%;" onclick="showDeskPanel('exp')" title="Expérience">💼</div>
             <div class="interactive-item" style="top: 53.5%; left: 43.5%;" onclick="showDeskPanel('hobby')" title="Hobbies">🎮</div>
             <div class="interactive-item" style="top: 34%; left: 84.5%;" onclick="showDeskPanel('lang')" title="Langues">🌍</div>
@@ -56,6 +56,7 @@
           </div>
         </div>
     </section>
+      
 
     <section id="projects" class="animate-on-scroll">
         <h2 class="section-title">Projets</h2>
@@ -234,7 +235,7 @@
             <a href="#" class="social-link">Twitter</a>
             <a href="#" class="social-link">Itch.io</a>
         </div>
-        <p class="copyright">© 2025 Prénom Nom. Tous droits réservés.</p>
+        <p class="copyright">© 2025 ADRIEN PATTE. Tous droits réservés.</p>
     </footer>
 
 
@@ -254,7 +255,8 @@
 
     <script>
         function showDeskPanel(key) {
-            const view = document.querySelector('.devdesk-view');
+            const wrapper = document.getElementById('devdeskWrapper');
+            const view = document.getElementById('devdeskView');
             const panel = document.getElementById('deskInfoPanel');
             const content = document.getElementById('deskInfoContent');
           
@@ -265,10 +267,24 @@
               hobby: `<h3>Hobbies</h3><p>Pixel art, design de mécaniques originales, Level design, expérimentations IA et shaders.</p>`
             };
           
-            content.innerHTML = infos[key];
-            view.classList.add('slide-left');
-            panel.classList.add('active');
+            const alreadySlid = wrapper.classList.contains('slidestate');
+          
+            if (!alreadySlid) {
+              wrapper.classList.add('slidestate');
+              view.classList.add('slide-left');
+          
+              setTimeout(() => {
+                content.innerHTML = infos[key];
+                panel.classList.add('active');
+              }, 800);
+            } else {
+              content.innerHTML = infos[key];
+              panel.classList.add('active');
+            }
         }
+          
+          
+        
 
 
         const projectsData = {
