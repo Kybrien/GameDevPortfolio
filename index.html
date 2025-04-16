@@ -38,6 +38,25 @@
         </div>
     </section>  
 
+    <section id="desk-about" class="flatlay-projects">
+        <h2 class="section-title">Mon univers</h2>
+        <div class="devdesk-wrapper">
+          <div class="devdesk-view">
+            <img src="/Medias/RoomPortfolio.png" alt="Ma chambre de dev" class="devdesk-bg">
+            <div class="interactive-item" style="top: 41.5%; left: 18%;" onclick="showDeskPanel('edu')" title="Formation">🎓</div>
+            <div class="interactive-item" style="top: 38%; left: 49%;" onclick="showDeskPanel('exp')" title="Expérience">💼</div>
+            <div class="interactive-item" style="top: 53.5%; left: 43.5%;" onclick="showDeskPanel('hobby')" title="Hobbies">🎮</div>
+            <div class="interactive-item" style="top: 34%; left: 84.5%;" onclick="showDeskPanel('lang')" title="Langues">🌍</div>
+          </div>
+          <div class="desk-info-panel" id="deskInfoPanel">
+            <div class="desk-info-content" id="deskInfoContent">
+              <h3>Bienvenue !</h3>
+              <p>Clique sur un des objets pour en savoir plus sur moi.</p>
+            </div>
+          </div>
+        </div>
+    </section>
+
     <section id="projects" class="animate-on-scroll">
         <h2 class="section-title">Projets</h2>
         <div class="container">
@@ -94,6 +113,8 @@
             </div>
         </div>
     </section>
+
+
     <section id="in-progress" class="projects-container animate-on-scroll">
         <h2 class="section-title">Projets en cours</h2>
         <div class="projects-grid">
@@ -232,6 +253,24 @@
     </div>
 
     <script>
+        function showDeskPanel(key) {
+            const view = document.querySelector('.devdesk-view');
+            const panel = document.getElementById('deskInfoPanel');
+            const content = document.getElementById('deskInfoContent');
+          
+            const infos = {
+              exp: `<h3>Expérience</h3><ul><li>Dév. gameplay Unreal/Unity</li><li>IA & systèmes procéduraux</li><li>Plugins Unreal C++</li></ul>`,
+              edu: `<h3>Formation</h3><p>Bachelor en programmation jeu vidéo (France) + Alternance à venir au Japon 🇯🇵</p>`,
+              lang: `<h3>Langues</h3><ul><li>Français : Natif</li><li>Anglais : C1</li><li>Japonais : en apprentissage 🇯🇵</li></ul>`,
+              hobby: `<h3>Hobbies</h3><p>Pixel art, design de mécaniques originales, Level design, expérimentations IA et shaders.</p>`
+            };
+          
+            content.innerHTML = infos[key];
+            view.classList.add('slide-left');
+            panel.classList.add('active');
+        }
+
+
         const projectsData = {
             project1: {
                 title: "Cosmic Explorers",

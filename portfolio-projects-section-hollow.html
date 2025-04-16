@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Projets - Style Hollow Knight</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0A0A11;
+      color: #E4E8F0;
+      min-height: 100vh;
+      font-family: 'Raleway', sans-serif;
+      overflow-x: hidden;
+      background-image: radial-gradient(circle at 80% 10%, rgba(80, 120, 200, 0.05) 0%, transparent 60%);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    h1 {
+      font-family: 'Cinzel', serif;
+      text-align: center;
+      margin-bottom: 3rem;
+      font-size: 2.5rem;
+      color: #FFFFFF;
+      letter-spacing: 3px;
+      position: relative;
+    }
+
+    h1::after {
+      content: "";
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    }
+
+    .projects-container {
+      display: flex;
+      gap: 30px;
+      min-height: 600px;
+      position: relative;
+    }
+
+    /* PC Terminal - Left side */
+    .terminal-container {
+      flex: 0 0 320px;
+      position: relative;
+    }
+
+    .terminal-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(15, 20, 40, 0.7);
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(100, 140, 230, 0.1);
+      clip-path: path('M20,0 C8.954305,0 0,8.954305 0,20 L0,580 C0,591.04569 8.954305,600 20,600 L300,600 C311.04569,600 320,591.04569 320,580 L320,20 C320,8.954305 311.04569,0 300,0 L20,0 Z');
+      z-index: 0;
+    }
+
+    .terminal-border {
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 22px;
+      z-index: -1;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+      clip-path: path('M23,0 C10.294305,0 0,10.294305 0,23 L0,577 C0,589.70569 10.294305,600 23,600 L297,600 C309.70569,600 320,589.70569 320,577 L320,23 C320,10.294305 309.70569,0 297,0 L23,0 Z');
+    }
+
+    .terminal-content {
+      position: relative;
+      z-index: 1;
+      padding: 30px 20px;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .terminal-header {
+      margin-bottom: 30px;
+      text-align: center;
+      position: relative;
+    }
+
+    .terminal-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.4rem;
+      color: #FFFFFF;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .terminal-subtitle {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 300;
+    }
+
+    .terminal-divider {
+      width: 80%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      margin: 20px auto;
+    }
+
+    .projects-list {
+      list-style: none;
+      margin-top: 30px;
+    }
+
+    .project-item {
+      padding: 14px 20px;
+      margin-bottom: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      border-radius: 12px;
+      background-color: rgba(40, 60, 100, 0.15);
+      overflow: hidden;
+    }
+
+    .project-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-item:hover {
+      background-color: rgba(60, 90, 150, 0.2);
+      transform: translateX(5px);
+    }
+
+    .project-item:hover::before {
+      opacity: 1;
+    }
+
+    .project-item.active {
+      background-color: rgba(80, 120, 200, 0.2);
+      box-shadow: 0 0 15px rgba(80, 120, 200, 0.2);
+    }
+
+    .project-item.active::before {
+      opacity: 1;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(100, 200, 255, 0.4));
+    }
+
+    .project-name {
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      color: #FFFFFF;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      display: block;
+    }
+
+    .project-preview {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 8px;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    .project-item.active .project-name {
+      color: rgba(200, 230, 255, 1);
+    }
+
+    /* Project Details - Right side */
+    .project-details {
+      flex: 1;
+      position: relative;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      overflow: hidden;
+      min-height: 600px;
+    }
+
+    .project-details-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(15, 20, 40, 0.7);
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(100, 140, 230, 0.1);
+      clip-path: path('M20,0 C8.954305,0 0,8.954305 0,20 L0,580 C0,591.04569 8.954305,600 20,600 L950,600 C961.04569,600 970,591.04569 970,580 L970,20 C970,8.954305 961.04569,0 950,0 L20,0 Z');
+      z-index: 0;
+    }
+
+    .project-details-border {
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 22px;
+      z-index: -1;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+      clip-path: path('M23,0 C10.294305,0 0,10.294305 0,23 L0,577 C0,589.70569 10.294305,600 23,600 L947,600 C959.70569,600 970,589.70569 970,577 L970,23 C970,10.294305 959.70569,0 947,0 L23,0 Z');
+    }
+
+    .project-details.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-details-content {
+      position: relative;
+      z-index: 1;
+      padding: 30px;
+      height: 100%;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .project-header::after {
+      content: "";
+      position: absolute;
+      bottom: -15px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.3), transparent);
+    }
+
+    .project-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.8rem;
+      color: #FFFFFF;
+      letter-spacing: 1.5px;
+    }
+
+    .close-button {
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 1.8rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+
+    .close-button:hover {
+      color: #FFFFFF;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .project-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .project-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-description {
+      font-family: 'Raleway', sans-serif;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 30px;
+    }
+
+    .project-skills-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.2rem;
+      color: #FFFFFF;
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    .project-skills-title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), transparent);
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .skill-tag {
+      background-color: rgba(40, 60, 100, 0.3);
+      border: 1px solid rgba(100, 150, 255, 0.2);
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.9);
+      transition: all 0.3s ease;
+    }
+
+    .skill-tag:hover {
+      background-color: rgba(60, 90, 150, 0.3);
+      border-color: rgba(100, 150, 255, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .project-links {
+      margin-top: auto;
+      display: flex;
+      gap: 15px;
+    }
+
+    .project-link {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, rgba(60, 90, 150, 0.6), rgba(40, 60, 100, 0.6));
+      border: 1px solid rgba(100, 150, 255, 0.2);
+      border-radius: 30px;
+      color: #FFFFFF;
+      text-decoration: none;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .project-link:hover {
+      background: linear-gradient(135deg, rgba(80, 120, 200, 0.6), rgba(60, 90, 150, 0.6));
+      border-color: rgba(100, 150, 255, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-link:active {
+      transform: translateY(0);
+    }
+
+    .project-link.secondary {
+      background: linear-gradient(135deg, rgba(30, 35, 50, 0.6), rgba(20, 25, 40, 0.6));
+    }
+
+    .project-link.secondary:hover {
+      background: linear-gradient(135deg, rgba(40, 50, 70, 0.6), rgba(30, 40, 60, 0.6));
+    }
+
+    .project-gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .main-image {
+      width: 100%;
+      height: 300px;
+      border-radius: 15px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .main-image::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .main-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .main-image:hover img {
+      transform: scale(1.05);
+    }
+
+    .secondary-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .secondary-image {
+      height: 150px;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .secondary-image::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .secondary-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .secondary-image:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Animation for new selected project */
+    @keyframes fade-in {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .fade-in {
+      animation: fade-in 1s forwards;
+    }
+
+    /* Magic particles */
+    .particles-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .particle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .projects-container {
+        flex-direction: column;
+      }
+
+      .terminal-container {
+        flex: none;
+        width: 100%;
+        height: auto;
+        min-height: 300px;
+      }
+
+      .project-body {
+        grid-template-columns: 1fr;
+      }
+
+      .terminal-bg,
+      .terminal-border,
+      .project-details-bg,
+      .project-details-border {
+        clip-path: none;
+        border-radius: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .project-links {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>MES PROJETS</h1>
+    
+    <div class="projects-container">
+      <!-- Terminal stylisé à gauche -->
+      <div class="terminal-container">
+        <div class="terminal-bg"></div>
+        <div class="terminal-border"></div>
+        <div class="terminal-content">
+          <div class="terminal-header">
+            <h2 class="terminal-title">PROJETS</h2>
+            <div class="terminal-subtitle">Sélectionnez pour voir les détails</div>
+            <div class="terminal-divider"></div>
+          </div>
+          
+          <ul class="projects-list">
+            <li class="project-item" data-project="1">
+              <span class="project-name">Projet 1</span>
+              <div class="project-preview">Un jeu de plateforme 2D avec des mécaniques innovantes</div>
+            </li>
+            <li class="project-item" data-project="2">
+              <span class="project-name">Projet 2</span>
+              <div class="project-preview">RPG tactique avec génération procédurale</div>
+            </li>
+            <li class="project-item" data-project="3">
+              <span class="project-name">Projet 3</span>
+              <div class="project-preview">Puzzle game atmosphérique avec narration visuelle</div>
+            </li>
+            <li class="project-item" data-project="3">
+              <span class="project-name">Projet 3</span>
+              <div class="project-preview">Puzzle game atmosphérique avec narration visuelle</div>
+            </li>
+            <li class="project-item" data-project="3">
+              <span class="project-name">Projet 3</span>
+              <div class="project-preview">Puzzle game atmosphérique avec narration visuelle</div>
+            </li>
+            <li class="project-item" data-project="3">
+              <span class="project-name">Projet 3</span>
+              <div class="project-preview">Puzzle game atmosphérique avec narration visuelle</div>
+            </li>
+            <li class="project-item" data-project="3">
+              <span class="project-name">Projet 3</span>
+              <div class="project-preview">Puzzle game atmosphérique avec narration visuelle</div>
+            </li>
+            <li class="project-item" data-project="3">
+              <span class="project-name">Projet 3</span>
+              <div class="project-preview">Puzzle game atmosphérique avec narration visuelle</div>
+            </li>
+            <li class="project-item" data-project="3">
+              <span class="project-name">Projet 3</span>
+              <div class="project-preview">Puzzle game atmosphérique avec narration visuelle</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Détails du projet à droite -->
+      <div class="project-details" id="projectDetails">
+        <div class="project-details-bg"></div>
+        <div class="project-details-border"></div>
+        <div class="project-details-content">
+          <div class="project-header">
+            <h2 class="project-title" id="projectTitle">Sélectionnez un projet</h2>
+            <button class="close-button" id="closeProject">×</button>
+          </div>
+          
+          <div class="project-body" id="projectContent">
+            <!-- Le contenu du projet sera injecté ici par JavaScript -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="particles-container" id="particlesContainer"></div>
+
+  <script>
+    // Données des projets (à remplacer par vos propres projets)
+    const projects = [
+      {
+        id: 1,
+        title: "Projet 1",
+        description: "Ce projet est un jeu de plateforme 2D développé avec Unity. Il combine l'esthétique rétro des jeux 8-bit avec des mécaniques de jeu modernes comme la manipulation du temps et la physique avancée. J'ai porté une attention particulière à la fluidité des contrôles et aux animations personnalisées pour créer une expérience immersive.",
+        images: ["/api/placeholder/640/360", "/api/placeholder/640/360"],
+        skills: ["Unity", "C#", "2D Animation", "Level Design", "Pixel Art"],
+        repoUrl: "https://github.com/username/projet1",
+        demoUrl: "https://demo.projet1.com"
+      },
+      {
+        id: 2,
+        title: "Projet 2",
+        description: "Développé avec Godot Engine, ce jeu combine stratégie au tour par tour et éléments roguelike. Chaque partie est unique grâce à la génération procédurale des niveaux et des rencontres. Le système de combat est basé sur un équilibre entre risque et récompense, encourageant l'expérimentation et offrant une rejouabilité exceptionnelle.",
+        images: ["/api/placeholder/640/360", "/api/placeholder/640/360"],
+        skills: ["Godot", "GDScript", "Procédural Generation", "Turn-based Combat", "UI Design"],
+        repoUrl: "https://github.com/username/projet2",
+        demoUrl: "https://demo.projet2.com"
+      },
+      {
+        id: 3,
+        title: "Projet 3",
+        description: "Ce jeu explore les thèmes de la solitude et de la connexion à travers des puzzles environnementaux. Développé avec Unreal Engine, il met l'accent sur l'atmosphère et le storytelling visuel. Les énigmes sont intégrées organiquement dans l'environnement pour créer une expérience immersive où chaque découverte fait avancer l'histoire.",
+        images: ["/api/placeholder/640/360", "/api/placeholder/640/360"],
+        skills: ["Unreal Engine", "Blueprint", "Atmospheric Design", "Environmental Storytelling", "Sound Design"],
+        repoUrl: "https://github.com/username/projet3",
+        demoUrl: "https://demo.projet3.com"
+      }
+    ];
+
+    // DOM Elements
+    const projectItems = document.querySelectorAll('.project-item');
+    const projectDetails = document.getElementById('projectDetails');
+    const projectTitle = document.getElementById('projectTitle');
+    const projectContent = document.getElementById('projectContent');
+    const closeButton = document.getElementById('closeProject');
+    const particlesContainer = document.getElementById('particlesContainer');
+
+    // Fonction pour générer des particules
+    function createParticles(x, y, count) {
+      for (let i = 0; i < count; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        particle.style.left = `${x + (Math.random() - 0.5) * 20}px`;
+        particle.style.top = `${y + (Math.random() - 0.5) * 20}px`;
+        
+        // Propriétés aléatoires
+        const size = Math.random() * 2 + 1;
+        const duration = Math.random() * 1.5 + 0.5;
+        const distance = Math.random() * 100 + 20;
+        const angle = Math.random() * Math.PI * 2;
+        
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.opacity = '0';
+        
+        particlesContainer.appendChild(particle);
+        
+        // Animation
+        setTimeout(() => {
+          particle.style.transition = `all ${duration}s ease-out`;
+          particle.style.transform = `translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance}px)`;
+          particle.style.opacity = '1';
+          
+          // Disparition
+          setTimeout(() => {
+            particle.style.opacity = '0';
+            setTimeout(() => {
+              particle.remove();
+            }, duration * 1000);
+          }, duration * 500);
+        }, 10);
+      }
+    }
+
+    // Functions
+    function showProject(projectId) {
+      // Trouver le projet
+      const project = projects.find(p => p.id === parseInt(projectId));
+      
+      if (!project) return;
+      
+      // Mise à jour de la liste des projets
+      projectItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.dataset.project === projectId) {
+          item.classList.add('active');
+          
+          // Calculer la position pour les particules
+          const rect = item.getBoundingClientRect();
+          createParticles(rect.right, rect.top + rect.height / 2, 15);
+        }
+      });
+      
+      // Mise à jour du titre
+      projectTitle.textContent = project.title;
+      
+      // Générer le contenu du projet
+      projectContent.innerHTML = `
+        <div class="project-info">
+          <div class="project-description">
+            ${project.description}
+          </div>
+          
+          <div class="project-skills">
+            <h3 class="project-skills-title">Compétences</h3>
+            <div class="skills-list">
+              ${project.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+            </div>
+          </div>
+          
+          <div class="project-links">
+            <a href="${project.repoUrl}" class="project-link" target="_blank">Code Source</a>
+            <a href="${project.demoUrl}" class="project-link secondary" target="_blank">Voir la Démo</a>
+          </div>
+        </div>
+        
+        <div class="project-gallery">
+          <div class="main-image">
+            <img src="${project.images[0]}" alt="${project.title} - Image principale">
+          </div>
+          <div class="secondary-images">
+            ${project.images.slice(1).map(img => `
+              <div class="secondary-image">
+                <img src="${img}" alt="${project.title} - Capture d'écran">
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+      
+      // Afficher le panneau
+      projectDetails.classList.add('active');
+      
+      // Effet visuel - particules sur le titre du projet
+      const titleRect = projectTitle.getBoundingClientRect();
+      setTimeout(() => {
+        createParticles(titleRect.left + titleRect.width / 2, titleRect.top + titleRect.height / 2, 20);
+      }, 300);
+    }
+
+    function closeProject() {
+      projectDetails.classList.remove('active');
+      projectItems.forEach(item => item.classList.remove('active'));
+    }
+
+    // Event Listeners
+    projectItems.forEach(item => {
+      item.addEventListener('click', function() {
+        showProject(this.dataset.project);
+      });
+      
+      // Effet de particules au survol
+      item.addEventListener('mouseenter', function() {
+        const rect = this.getBoundingClientRect();
+        createParticles(rect.left + 10, rect.top + rect.height / 2, 5);
+      });
+    });
+
+    closeButton.addEventListener('click', closeProject);
+
+    // Particules d'ambiance en arrière-plan
+    function createAmbientParticles() {
+      const particleCount = window.innerWidth > 768 ? 50 : 20;
+      
+      for (let i = 0; i < particleCount; i++) {
+        setTimeout(() => {
+          const x = Math.random() * window.innerWidth;
+          const y = Math.random() * window.innerHeight;
+          
+          const particle = document.createElement('div');
+          particle.classList.add('particle');
+          particle.style.left = `${x}px`;
+          particle.style.top = `${y}px`;
+          
+          const size = Math.random() * 2 + 1;
+          const opacity = Math.random() * 0.15 + 0.05;
+          const duration = Math.random() * 15 + 10;
+          
+          particle.style.width = `${size}px`;
+          particle.style.height = `${size}px`;
+          particle.style.opacity = '0';
+          particle.style.backgroundColor = `rgba(255, 255, 255, ${opacity})`;
+          
+          particlesContainer.appendChild(particle);
+          
+          // Animation lente vers le haut
+          setTimeout(() => {
+            particle.style.transition = `all ${duration}s linear`;
+            particle.style.transform = `translate(${(Math.random() - 0.5) * 100}px, ${-y - 100}px)`;
+            particle.style.opacity = `${opacity}`;
+            
+            // Suppression après animation
+            setTimeout(() => {
+              particle.remove();
+              // Créer une nouvelle particule pour remplacer
+              createAmbientParticles(1);
+            }, duration * 1000);
+          }, 10);
+          
+        }, i * 300);
+      }
+    }
+    
+    // Lancer les particules d'ambiance
+    createAmbientParticles();
+    
+    // Précharger le premier projet après un court délai
+    setTimeout(() => {
+      showProject('1');
+    }, 800);
+  </script>
+</body>
+</html>
