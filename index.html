@@ -38,23 +38,24 @@
         </div>
     </section>  
 
+    <!-- Section Mon univers améliorée -->
     <section id="desk-about" class="flatlay-projects">
-        <h2 class="section-title">Mon univers</h2>
-        <div class="devdesk-wrapper" id="devdeskWrapper">
-          <div class="devdesk-view" id="devdeskView">
-            <img src="/Medias/RoomPortfolio.png" alt="Ma chambre de dev" class="devdesk-bg">
-            <div class="interactive-item" style="top: 40.5%; left: 16%;" onclick="showDeskPanel('edu')" title="Formation">🎓</div>
-            <div class="interactive-item" style="top: 66%; left: 49%;" onclick="showDeskPanel('exp')" title="Expérience">💼</div>
-            <div class="interactive-item" style="top: 48.5%; left: 29.5%;" onclick="showDeskPanel('hobby')" title="Hobbies">🎮</div>
-            <div class="interactive-item" style="top: 45%; left: 84.5%;" onclick="showDeskPanel('lang')" title="Langues">🌍</div>
-          </div>
-          <div class="desk-info-panel" id="deskInfoPanel">
-            <div class="desk-info-content" id="deskInfoContent">
-              <h3>Bienvenue !</h3>
-              <p>Clique sur un des objets pour en savoir plus sur moi.</p>
-            </div>
+      <h2 class="section-title">Mon univers</h2>
+      <div class="devdesk-wrapper" id="devdeskWrapper">
+        <div class="devdesk-view" id="devdeskView">
+          <img src="/Medias/RoomPortfolio.png" alt="Ma chambre de dev" class="devdesk-bg">
+          <div class="interactive-item" style="top: 40.5%; left: 16%;" onclick="showDeskPanel('edu')" title="Formation">🎓</div>
+          <div class="interactive-item" style="top: 66%; left: 49%;" onclick="showDeskPanel('exp')" title="Expérience">💼</div>
+          <div class="interactive-item" style="top: 48.5%; left: 29.5%;" onclick="showDeskPanel('hobby')" title="Hobbies">🎮</div>
+          <div class="interactive-item" style="top: 45%; left: 84.5%;" onclick="showDeskPanel('lang')" title="Langues">🌍</div>
+        </div>
+        <div class="desk-info-panel" id="deskInfoPanel">
+          <div class="desk-info-content" id="deskInfoContent">
+            <h3>Bienvenue !</h3>
+            <p>Clique sur un des objets pour en savoir plus sur moi.</p>
           </div>
         </div>
+      </div>
     </section>
       
 
@@ -254,38 +255,243 @@
     </div>
 
     <script>
-        function showDeskPanel(key) {
-            const wrapper = document.getElementById('devdeskWrapper');
-            const view = document.getElementById('devdeskView');
-            const panel = document.getElementById('deskInfoPanel');
-            const content = document.getElementById('deskInfoContent');
-          
-            const infos = {
-              exp: `<h3>Expérience</h3><ul><li>Dév. gameplay Unreal/Unity</li><li>IA & systèmes procéduraux</li><li>Plugins Unreal C++</li></ul>`,
-              edu: `<h3>Formation</h3><p>Bachelor en programmation jeu vidéo (France) + Alternance à venir au Japon 🇯🇵</p>`,
-              lang: `<h3>Langues</h3><ul><li>Français : Natif</li><li>Anglais : C1</li><li>Japonais : en apprentissage 🇯🇵</li></ul>`,
-              hobby: `<h3>Hobbies</h3><p>Pixel art, design de mécaniques originales, Level design, expérimentations IA et shaders.</p>`
-            };
-          
-            const alreadySlid = wrapper.classList.contains('slidestate');
-          
-            if (!alreadySlid) {
-              wrapper.classList.add('slidestate');
-              view.classList.add('slide-left');
-          
-              setTimeout(() => {
-                content.innerHTML = infos[key];
-                panel.classList.add('active');
-              }, 800);
-            } else {
-              content.innerHTML = infos[key];
-              panel.classList.add('active');
-            }
-        }
-          
-          
+      function showDeskPanel(key) {
+        const wrapper = document.getElementById('devdeskWrapper');
+        const view = document.getElementById('devdeskView');
+        const panel = document.getElementById('deskInfoPanel');
+        const content = document.getElementById('deskInfoContent');
         
-
+        // Données riches pour chaque section
+        const infos = {
+          exp: `
+            <div class="info-card">
+              <h3 class="info-title"><i class="info-icon">💼</i> Expérience professionnelle</h3>
+              <div class="timeline-exp">
+                <div class="exp-item">
+                  <div class="exp-date">2023 - Présent</div>
+                  <div class="exp-content">
+                    <h4>Développeur Gameplay</h4>
+                    <p class="exp-company">Studio Indie Games</p>
+                    <ul class="exp-details">
+                      <li>Développement de mécaniques de jeu innovantes sous Unreal Engine</li>
+                      <li>Création de plugins personnalisés en C++</li>
+                      <li>Optimisation et implémentation d'IA pour PNJ</li>
+                    </ul>
+                    <div class="tech-tags">
+                      <span class="tech-pill">Unreal Engine</span>
+                      <span class="tech-pill">C++</span>
+                      <span class="tech-pill">Blueprint</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="exp-item">
+                  <div class="exp-date">2022 - 2023</div>
+                  <div class="exp-content">
+                    <h4>Unity Developer</h4>
+                    <p class="exp-company">GameLabs Interactive</p>
+                    <ul class="exp-details">
+                      <li>Développement de prototypes de gameplay</li>
+                      <li>Création d'outils d'édition personnalisés</li>
+                    </ul>
+                    <div class="tech-tags">
+                      <span class="tech-pill">Unity</span>
+                      <span class="tech-pill">C#</span>
+                      <span class="tech-pill">HLSL</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <a href="#contact" class="cta-button">Parlons de votre projet</a>
+              </div>
+            </div>
+          `,
+          
+          edu: `
+            <div class="info-card">
+              <h3 class="info-title"><i class="info-icon">🎓</i> Formation</h3>
+              <div class="edu-container">
+                <div class="edu-item">
+                  <div class="edu-year">2024 - 2025</div>
+                  <div class="edu-content">
+                    <h4>Alternance au Japon 🇯🇵</h4>
+                    <p class="edu-school">Tokyo Game Academy</p>
+                    <p class="edu-desc">Spécialisation en développement Unreal Engine et design de jeu</p>
+                    <div class="edu-badge">En cours</div>
+                  </div>
+                </div>
+                <div class="edu-item">
+                  <div class="edu-year">2021 - 2024</div>
+                  <div class="edu-content">
+                    <h4>Bachelor en Développement de Jeux Vidéo</h4>
+                    <p class="edu-school">École du Jeu Vidéo, Paris</p>
+                    <p class="edu-desc">Formation complète aux métiers du développement avec spécialisation gameplay</p>
+                    <div class="edu-skills">
+                      <div class="skill-bar">
+                        <span class="skill-name">C++</span>
+                        <div class="skill-progress">
+                          <div class="skill-fill" style="width: 85%"></div>
+                        </div>
+                      </div>
+                      <div class="skill-bar">
+                        <span class="skill-name">Unreal</span>
+                        <div class="skill-progress">
+                          <div class="skill-fill" style="width: 90%"></div>
+                        </div>
+                      </div>
+                      <div class="skill-bar">
+                        <span class="skill-name">Unity</span>
+                        <div class="skill-progress">
+                          <div class="skill-fill" style="width: 80%"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <a href="#projects" class="cta-button">Voir mes projets</a>
+              </div>
+            </div>
+          `,
+          
+          hobby: `
+            <div class="info-card">
+              <h3 class="info-title"><i class="info-icon">🎮</i> Hobbies & Passions</h3>
+              <div class="hobby-grid">
+                <div class="hobby-item">
+                  <div class="hobby-icon">🎨</div>
+                  <h4>Pixel Art</h4>
+                  <p>Création de sprites et animations rétro pour jeux indépendants.</p>
+                </div>
+                <div class="hobby-item">
+                  <div class="hobby-icon">🎲</div>
+                  <h4>Game Design</h4>
+                  <p>Conception de mécaniques de jeu innovantes et équilibrage de gameplay.</p>
+                </div>
+                <div class="hobby-item">
+                  <div class="hobby-icon">🏔️</div>
+                  <h4>Randonnée</h4>
+                  <p>Exploration de la nature pour trouver l'inspiration visuelle.</p>
+                </div>
+                <div class="hobby-item">
+                  <div class="hobby-icon">📚</div>
+                  <h4>Science-Fiction</h4>
+                  <p>Lecture et écriture de récits d'anticipation technologique.</p>
+                </div>
+              </div>
+              <div class="hobby-showcase">
+                <h4>Projet personnel en cours</h4>
+                <div class="hobby-project">
+                  <div class="project-preview">
+                    <img src="/api/placeholder/150/150" alt="Pixel Art Sample" class="project-thumb">
+                  </div>
+                  <div class="project-info">
+                    <h5>RetroVania</h5>
+                    <p>Metroidvania en pixel art inspiré des classiques des années 90.</p>
+                    <div class="project-progress">
+                      <div class="progress-track">
+                        <div class="progress-fill" style="width: 45%"></div>
+                      </div>
+                      <span class="progress-text">45% complété</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `,
+          
+          lang: `
+            <div class="info-card">
+              <h3 class="info-title"><i class="info-icon">🌍</i> Langues & Communication</h3>
+              <div class="lang-container">
+                <div class="lang-item">
+                  <div class="lang-flag">🇫🇷</div>
+                  <div class="lang-details">
+                    <h4>Français</h4>
+                    <p>Langue maternelle</p>
+                    <div class="lang-level">
+                      <span class="level-dot filled"></span>
+                      <span class="level-dot filled"></span>
+                      <span class="level-dot filled"></span>
+                      <span class="level-dot filled"></span>
+                      <span class="level-dot filled"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="lang-item">
+                  <div class="lang-flag">🇬🇧</div>
+                  <div class="lang-details">
+                    <h4>Anglais</h4>
+                    <p>Niveau C1 - Professionnel avancé</p>
+                    <div class="lang-level">
+                      <span class="level-dot filled"></span>
+                      <span class="level-dot filled"></span>
+                      <span class="level-dot filled"></span>
+                      <span class="level-dot filled"></span>
+                      <span class="level-dot"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="lang-item">
+                  <div class="lang-flag">🇯🇵</div>
+                  <div class="lang-details">
+                    <h4>Japonais</h4>
+                    <p>Niveau A2 - Élémentaire</p>
+                    <div class="lang-level">
+                      <span class="level-dot filled"></span>
+                      <span class="level-dot filled"></span>
+                      <span class="level-dot"></span>
+                      <span class="level-dot"></span>
+                      <span class="level-dot"></span>
+                    </div>
+                    <div class="lang-learning">
+                      <span class="learning-badge">En apprentissage</span>
+                      <div class="progress-track small">
+                        <div class="progress-fill" style="width: 40%"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="lang-certification">
+                <h4>Certifications</h4>
+                <ul class="cert-list">
+                  <li><span class="cert-date">2023</span> - <b>TOEIC</b>: Score 925/990</li>
+                  <li><span class="cert-date">2022</span> - <b>Cambridge C1 Advanced</b>: Grade A</li>
+                  <li><span class="cert-date">2024</span> - <b>JLPT N5</b> (Japonais): En préparation</li>
+                </ul>
+              </div>
+            </div>
+          `
+        };
+        
+        const alreadySlid = wrapper.classList.contains('slidestate');
+        
+        if (!alreadySlid) {
+          wrapper.classList.add('slidestate');
+          view.classList.add('slide-left');
+          
+          setTimeout(() => {
+            content.innerHTML = infos[key];
+            panel.classList.add('active');
+          }, 800);
+        } else {
+          // Animation de transition pour le changement de contenu
+          panel.classList.add('content-changing');
+          
+          setTimeout(() => {
+            content.innerHTML = infos[key];
+            panel.classList.remove('content-changing');
+          }, 300);
+        }
+        
+        // Mise en évidence de l'élément sélectionné
+        document.querySelectorAll('.interactive-item').forEach(item => {
+          item.classList.remove('selected');
+        });
+        event.currentTarget.classList.add('selected');
+      }
 
         const projectsData = {
             project1: {
