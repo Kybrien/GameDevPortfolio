@@ -139,27 +139,32 @@ p {
 .section-title {
     font-family: 'TrajanPro', serif;
     text-shadow:
-    0 0 4px rgba(255, 255, 255, 0.3),
-    0 0 8px var(--accent);
+      0 0 4px rgba(255, 255, 255, 0.3),
+      0 0 8px var(--accent);
     font-size: 2.2rem;
     margin: 2rem 0 1rem;
     text-align: center;
     color: white;
     position: relative;
-    padding-bottom: 0.5rem;
+    padding-bottom: 1rem; /* espace pour l’image */
 }
 
 
 
-.section-title::after {
-    content: '';
+  .section-title::after {
+    content: "";
     position: absolute;
-    bottom: 0;
     left: 50%;
+    bottom: 0;
     transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: var(--accent);
+    width: 180px;
+    height: 30px;
+    background-image: url("/Medias/UnderlineTitle.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.9;
+    pointer-events: none;
 }
 
 
