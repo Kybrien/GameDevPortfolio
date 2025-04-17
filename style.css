@@ -1606,7 +1606,7 @@ footer::before {
   }
   
   .interactive-item:hover {
-    transform: scale(1.2) translate(-50%, -45%);
+    transform: scale(1.2) translate(-42%, -42%);
     background: rgba(0, 0, 0, 0.589);
   }
   
