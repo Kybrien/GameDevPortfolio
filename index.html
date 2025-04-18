@@ -23,8 +23,6 @@
         <a href="#about" class="nav-link">À propos</a>
         <a href="#skills" class="nav-link">Compétences</a>
         <a href="#projects" class="nav-link">Projets</a>
-        <a href="#in-progress" class="nav-link">En cours</a>
-        <!-- <a href="#experience" class="nav-link">Expérience</a> -->
         <a href="#contact" class="nav-link">Contact</a>
     </nav>
 
@@ -255,6 +253,7 @@
     </div>
 
     <script>
+      
       function showDeskPanel(key) {
         const wrapper = document.getElementById('devdeskWrapper');
         const view = document.getElementById('devdeskView');
@@ -312,11 +311,11 @@
               <h3 class="info-title"><i class="info-icon">🎓</i> Formation</h3>
               <div class="edu-container">
                 <div class="edu-item">
-                  <div class="edu-year">2024 - 2025</div>
+                  <div class="edu-year">2025 - 2027</div>
                   <div class="edu-content">
-                    <h4>Alternance au Japon 🇯🇵</h4>
-                    <p class="edu-school">Tokyo Game Academy</p>
-                    <p class="edu-desc">Spécialisation en développement Unreal Engine et design de jeu</p>
+                    <h4> Msc Manager des projets informatiques</h4>
+                    <p class="edu-school">Quest Education Paris</p>
+                    <!-- <p class="edu-desc">Master</p> -->
                     <div class="edu-badge">En cours</div>
                   </div>
                 </div>
@@ -324,7 +323,7 @@
                   <div class="edu-year">2021 - 2024</div>
                   <div class="edu-content">
                     <h4>Bachelor en Développement de Jeux Vidéo</h4>
-                    <p class="edu-school">École du Jeu Vidéo, Paris</p>
+                    <p class="edu-school">Quest Education Paris</p>
                     <p class="edu-desc">Formation complète aux métiers du développement avec spécialisation gameplay</p>
                     <div class="edu-skills">
                       <div class="skill-bar">
@@ -348,6 +347,15 @@
                     </div>
                   </div>
                 </div>
+                <div class="edu-item">
+                  <div class="edu-year">2015 - 2022</div>
+                  <div class="edu-content">
+                    <h4>Baccalauréat Générale Scientifique</h4>
+                    <p class="edu-school">Lycée Militaire d'Autun</p>
+                    <p class="edu-desc">Spécialisation en développement Unreal Engine et design de jeu</p>
+                    <div class="edu-badge">Fini</div>
+                  </div>
+                </div>
               </div>
               <div class="card-footer">
                 <a href="#projects" class="cta-button">Voir mes projets</a>
@@ -358,44 +366,44 @@
           hobby: `
             <div class="info-card">
               <h3 class="info-title"><i class="info-icon">🎮</i> Hobbies & Passions</h3>
+              <div class="hobby-showcase">
+                <h4>Projet Personel du moment</h4>
+                <div class="hobby-project">
+                  <div class="project-preview">
+                    <img src="/Medias/TwitchPluginLogo.png" alt="StreamSync Logo" class="project-thumb">
+                  </div>
+                  <div class="project-info">
+                    <h5>Plugin Unreal | Stream Sync</h5>
+                    <p>Plugin C++/BP permettant de link un stream Twitch a un gameplay sur Unreal Engine</p>
+                    <div class="project-progress">
+                      <div class="progress-track">
+                        <div class="progress-fill" style="width: 90%"></div>
+                      </div>
+                      <span class="progress-text">En attente de publishing</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <div class="hobby-grid">
                 <div class="hobby-item">
                   <div class="hobby-icon">🎨</div>
-                  <h4>Pixel Art</h4>
+                  <h4>Dessin & Pixel Art</h4>
                   <p>Création de sprites et animations rétro pour jeux indépendants.</p>
                 </div>
                 <div class="hobby-item">
                   <div class="hobby-icon">🎲</div>
-                  <h4>Game Design</h4>
+                  <h4>Jeux video HD2D</h4>
                   <p>Conception de mécaniques de jeu innovantes et équilibrage de gameplay.</p>
                 </div>
                 <div class="hobby-item">
                   <div class="hobby-icon">🏔️</div>
-                  <h4>Randonnée</h4>
+                  <h4>Moto</h4>
                   <p>Exploration de la nature pour trouver l'inspiration visuelle.</p>
                 </div>
                 <div class="hobby-item">
                   <div class="hobby-icon">📚</div>
                   <h4>Science-Fiction</h4>
                   <p>Lecture et écriture de récits d'anticipation technologique.</p>
-                </div>
-              </div>
-              <div class="hobby-showcase">
-                <h4>Projet personnel en cours</h4>
-                <div class="hobby-project">
-                  <div class="project-preview">
-                    <img src="/api/placeholder/150/150" alt="Pixel Art Sample" class="project-thumb">
-                  </div>
-                  <div class="project-info">
-                    <h5>RetroVania</h5>
-                    <p>Metroidvania en pixel art inspiré des classiques des années 90.</p>
-                    <div class="project-progress">
-                      <div class="progress-track">
-                        <div class="progress-fill" style="width: 45%"></div>
-                      </div>
-                      <span class="progress-text">45% complété</span>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -649,9 +657,6 @@
             hero.classList.remove('shrink');
           }
         });
-
-
-        
     </script>
     
 </body>
